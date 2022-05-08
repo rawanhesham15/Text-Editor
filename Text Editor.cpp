@@ -1,7 +1,35 @@
 #include <iostream>
 #include<fstream>
+#include<istream>
+#include <string>
+#include <vector>
+#include <cctype>
+#include <algorithm>
 
 using namespace std;
+
+//__________________________________________________________
+
+void countNumTimesWord();
+void turnUpper();
+void turnLower();
+void firstCaps();
+void save();
+
+//__________________________________________________________
+string toLower(string word){
+
+    string temp;
+    ifstream myFile("dataFile.txt");
+    for (int i = 0; i < word.length(); ++i) {
+        if(isalpha(word[i])){
+            word[i] = tolower(word[i]);
+        }
+    }
+    return word;
+}
+//__________________________________________________________
+
 
 fstream myFile;
 
@@ -33,3 +61,26 @@ int main(){
 //        {
 //        }
 }
+
+//__________________________________________________________
+void countNumTimesWord() {
+
+    string fileName;
+    cout << "Enter input file name: " << "\n";
+    cin >> fileName;
+//open the file
+    ifstream myFile(fileName);
+    int count = 0;
+    string temp;
+    string search;
+    cout << "Please enter the word you want to know how many times it exists in the file: ";
+    cin >> search;
+    while (myFile >> temp) {
+        if (toLower(temp) == toLower(search)) {
+            ++count;
+        }
+    }
+    cout <<"The word "<< search <<" was found "<< count << " times in the file. "<< endl;
+}
+
+//__________________________________________________________
