@@ -12,6 +12,7 @@ using namespace std;
 void mergeFiles();
 void countWords();
 void countCharacters();
+void countLines();
 void countNumTimesWord();
 void turnUpper();
 void turnLower();
@@ -53,6 +54,9 @@ int main(){
             break;
         case 8:
             countCharacters();
+            break;
+        case 9:
+            countLines();
             break;
         case 11:
             countNumTimesWord();
@@ -176,6 +180,33 @@ void countCharacters(){
     }
     cout << "The number of characters in the file is " << characters << " characters.\n";
     myFile.close();
+}
+
+//__________________________________________________________
+void countLines(){
+    string fileName, line;
+    int lines = 0;
+
+    cout << "Please enter the file name: ";
+    cin >> fileName;
+
+    myFile.open(fileName, ios::out|ios::in);
+
+    if(myFile){
+        cout << "...This File is Already Exists...\n";
+    }
+    else{
+        ofstream myFile(fileName);
+        cout << "...This is a new file. I created it for you :)\n";
+    }
+    myFile.seekg(0,ios::beg);
+
+    while(myFile.peek() != EOF){
+        getline(myFile, line);
+        lines++;
+    }
+
+    cout << "The number of lines in the file is " << lines << " line.\n";
 }
 
 //__________________________________________________________
