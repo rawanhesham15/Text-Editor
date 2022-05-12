@@ -50,7 +50,7 @@ int main(){
         case 6:
             mergeFiles();
             break;
-        cese 7:
+        case 7:
             countWords();
             break;
         case 8:
