@@ -9,7 +9,7 @@
 using namespace std;
 
 //__________________________________________________________
-
+void mergeFiles();
 void countNumTimesWord();
 void turnUpper();
 void turnLower();
@@ -30,36 +30,23 @@ string toLower(string word){
 }
 //__________________________________________________________
 
-
 fstream myFile;
+fstream myFile2;
 
 int main(){
     int choice;
-    string fileName;
+
     cout << "... WELCOME IN OUR TEXT EDITOR...\n";
-    cout << "(if you want to merge two files enter the NOT ORIGINAL FILE NAME)\nPlease enter File name here: ";
-    cin >> fileName;
-
-    myFile.open(fileName, ios::out|ios::in);
-
-    if(myFile){
-        cout << "...This File is Already Exists...\n";
-        system("PAUSE");
-        system("cls");
-    }
-    else{
-        ofstream myFile(fileName);
-        cout << "...This is a new file. I created it for you :)\n";
-        system("PAUSE");
-        system("cls");
-    }
-
     cout << "1. Add new text to the end of the file.\n2. Display the content of the file.\n3. Empty the file.\n4. Encrypt the file content.\n5. Decrypt the file content.\n6. Merge another file.\n7. Count the number of words in the file.\n8. Count the number of characters in the file.\n9. Count the number of lines in the file.\n10. Search for a word in the file.\n11. Count the number of times a word exists in the file.\n12. Turn the file content to upper case.\n13. Turn the file content to lower case.\n14. Turn file content to 1st caps (1st char of each word is capital).\n15. Save.\n16. Exit.\n";
     cout << "Please choose number: ";
     cin >> choice;
+
        switch(choice)
        {
-           case 11:
+        case 6:
+            mergeFiles();
+            break;
+        case 11:
             countNumTimesWord();
             break;
         case 12:
@@ -82,7 +69,41 @@ int main(){
             cout << "Invalid option :(";
             break;
     }
-       
+
+}
+
+//__________________________________________________________
+void mergeFiles(){
+    string fileName, fileName2, line;
+
+    cout << "Please enter the first file name (NOT ORIGINAL FILE NAME): ";
+    cin >> fileName;
+
+    myFile.open(fileName, ios::out|ios::in);
+
+    if(myFile){
+        cout << "...This File is Already Exists...\n";
+    }
+    else{
+        ofstream myFile(fileName);
+        cout << "...This is a new file. I created it for you :)\n";
+    }
+
+
+    cout << "Please enter the second file to merge(the file to merge in, THE ORIGINAL FILE): ";
+    cin >> fileName2;
+    myFile2.open(fileName2, ios::out|ios::app);
+    myFile2.seekg(0, ios::end);
+
+    if(myFile && myFile2){
+        myFile2 << myFile.rdbuf();
+        cout << "...DONE...";
+    }
+    else
+        cout << "Failed To Open Files :(\n";
+
+    myFile.close();
+    myFile2.close();
 }
 
 //__________________________________________________________
