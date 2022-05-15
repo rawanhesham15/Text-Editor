@@ -315,3 +315,122 @@ void save(){
     }
 }
 //__________________________________________________________
+//__________________________________________________________
+void add_text()
+{
+
+    string text;
+    cout << "please enter filename";
+    cin.getline(filename, 81);
+    ofstream out_file;
+    out_file.open(filename, ios::app);
+    cout << "enter the text you want to add";
+    while (getline(cin, text))
+    {
+        out_file << text << endl;
+        if (text == "ctrl+Z")
+        {
+            break;
+        }
+    }
+    cin.clear();
+
+
+}
+//__________________________________________________________
+
+void encrypt()
+{
+    fstream file;
+    fstream ofile;
+    char file_encrypt[81];
+    char encryptarr[50];
+    char c;
+    int encrypt_char;
+    ofstream encfile;
+    cout << "please enter filename";
+    cin.getline(filename, 81);
+
+    file.open(filename, ios::in);
+
+
+    int i = 0;
+    while (file.peek() != EOF) {
+        file.get(c);
+        encrypt_char = int(c) + 1;
+        cout << char(encrypt_char);
+        encryptarr[i] = char(encrypt_char);
+
+        i++;
+    }
+    encfile.open(filename);
+    for (int j = 0; j < i; j++)
+    {
+        encfile << encryptarr[j];
+    }
+    encfile.close();
+
+}
+void empty_file()
+{
+    fstream file;
+    file.open(filename, ios::in);
+    ofstream out_file;
+    out_file.open(filename, ios::app);
+    while (file.peek() != EOF) {
+        out_file << ' ';
+
+    }
+}
+//__________________________________________________________
+void decrypt_file()
+{
+    fstream file;
+    fstream ofile;
+    char file_decrypt[81];
+    char decryptarr[50];
+    char c;
+    int dencrypt_char;
+    ofstream decfile;
+    cout << "please enter filename";
+    cin.getline(filename, 81);
+
+    file.open(filename, ios::in);
+
+
+    int i = 0;
+
+    while (file.peek() != EOF) {
+        file.get(c);
+        dencrypt_char = int(c) - 1;
+        decryptarr[i] = char(dencrypt_char);
+
+        i++;
+    }
+
+    decfile.open(filename);
+    for (int j = 0; j < i; j++)
+    {
+        decfile << decryptarr[j];
+    }
+    decfile.close();
+}
+//__________________________________________________________
+
+void display_file()
+{
+    char filename[81];
+    cout << "please enter filename";
+    cin.getline(filename, 81);
+
+    fstream file;
+    string input;
+    file.open(filename, ios::in);
+
+    while (file.peek() != EOF) {
+        getline(file, input);
+        cout << input;
+    }
+}
+//__________________________________________________________
+
