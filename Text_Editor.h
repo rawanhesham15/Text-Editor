@@ -14,6 +14,7 @@ using namespace std;
 //__________________________________________________________
 void mergeFiles();
 void countWords();
+void countCharacters();
 //__________________________________________________________
 fstream myFile;
 fstream myFile2;

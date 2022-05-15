@@ -68,3 +68,31 @@ void countWords(){
     cout << "The number of words in the file is " << words << " words.\n";
     myFile.close();
 }
+
+//__________________________________________________________
+void countCharacters(){
+    int characters = 0;
+    char ch;
+    string fileName;
+
+    cout << "Please enter the file name: ";
+    cin >> fileName;
+
+    myFile.open(fileName, ios::out|ios::in);
+
+    if(myFile){
+        cout << "...This File is Already Exists...\n";
+    }
+    else{
+        ofstream myFile(fileName);
+        cout << "...This is a new file. I created it for you :)\n";
+    }
+    myFile.seekg(0, ios::beg); //bring position of file pointer to begining of file.
+
+    while(myFile.peek() != EOF){
+        myFile.get(ch);
+        characters += 1;
+    }
+    cout << "The number of characters in the file is " << characters << " characters.\n";
+    myFile.close();
+}

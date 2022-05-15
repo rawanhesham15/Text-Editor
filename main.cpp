@@ -21,5 +21,8 @@ int main() {
         case 7:
             countWords();
             break;
+        case 8:
+            countCharacters();
+            break;
     }
 }
