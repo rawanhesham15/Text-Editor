@@ -236,3 +236,44 @@ void turnLower(){
 }
 
 //__________________________________________________________
+
+void firstCaps(){
+
+    // Take the input and output filename
+    string fileName;
+// indicate that a new sentence will come
+    bool newSentence = true;
+    cout << "Enter input file name: " << "\n";
+    cin >> fileName;
+//open the file
+    ifstream myFile(fileName);
+    cout << "Enter output file name: " << "\n";
+    cin >> fileName;
+// And try to open the file
+    ofstream outFile(fileName);
+// convert if the input and output file could be opened
+    if (myFile && outFile) {
+        char ch;
+        while (myFile.get(ch)) {
+            if (ch == '.' || ch == ' ') {
+                newSentence = true;
+            }
+            if (isalpha(ch)) {
+                if (newSentence) {
+                    ch = toupper(ch);
+                    newSentence = false;
+                }
+                else {
+                    ch = tolower(ch);
+                }
+            }
+            outFile.put(ch);
+        }
+    }
+    else {
+        cout << "Cannot open file\n";
+    }
+    cout << "\nFile changed to first caps";
+}
+
+//__________________________________________________________
