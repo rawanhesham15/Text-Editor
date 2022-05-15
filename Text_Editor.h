@@ -15,6 +15,7 @@ using namespace std;
 void mergeFiles();
 void countWords();
 void countCharacters();
+void countLines();
 //__________________________________________________________
 fstream myFile;
 fstream myFile2;

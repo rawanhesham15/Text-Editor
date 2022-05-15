@@ -24,5 +24,8 @@ int main() {
         case 8:
             countCharacters();
             break;
+        case 9:
+            countLines();
+            break;
     }
 }
