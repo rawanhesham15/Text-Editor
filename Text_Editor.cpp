@@ -214,3 +214,25 @@ void turnUpper(){
 }
 
 //__________________________________________________________
+void turnLower(){
+    fstream myFile;
+    char name[100] , ch;
+    vector<char> letters;
+    cout << "Enter the file name : ";
+    cin >> name;
+    myFile.open(name,ios::in);
+    while(!myFile.eof() && !myFile.fail()){
+        myFile.get(ch);
+        letters.push_back(tolower(ch));
+    }
+    myFile.close();
+    myFile.open(name,ios::out);
+    for(int i=0 ; i<letters.size()-1 ; ++i){
+        myFile.put(letters[i]);
+    }
+    myFile.close();
+    cout << "\nChanged to lowercase successfully :)";
+
+}
+
+//__________________________________________________________
