@@ -277,3 +277,41 @@ void firstCaps(){
 }
 
 //__________________________________________________________
+
+void save(){
+
+    char fileOne[30], fileTarget[30], ch;
+    fstream fpsOne, fpTarget;
+    int x ;
+    cout << "\n1-Save in the same file.\n2-save in a new file.\n";
+    cin >> x;
+    switch (x) {
+        case 1:
+            cout << "File saved Successfully\n";
+            break;
+        case 2:
+            cout << "\nEnter the Name of Original File: ";
+            cin >> fileOne;//gets(fileOne);
+            fpsOne.open(fileOne, fstream::in);
+            if ((!fpsOne)) {
+                cout << "\nError Occurred (First Source File)!";
+            } else {
+                cout << "\nEnter the Name of New File: ";
+                cin >> fileTarget;//gets(fileTarget);
+                fpTarget.open(fileTarget, fstream::out);
+                if (!fpTarget)
+                    cout << "\nError Occurred (Target File)!";
+                else {
+                    while (fpsOne >> noskipws >> ch)
+                        fpTarget << ch;
+                    fpTarget << "\n";
+                    cout << "\nFile has been saved Successfully ";
+                }
+            }
+            fpsOne.close();
+            fpTarget.close();
+            cout << endl;;
+            break;
+    }
+}
+//__________________________________________________________
