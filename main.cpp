@@ -30,5 +30,25 @@ int main() {
         case 10:
             searchForWord();
             break;
+        case 11:
+            countNumTimesWord();
+            break;
+        case 12:
+            turnUpper();
+            save();
+            break;
+        case 13:
+            turnLower();
+            save();
+            break;
+        case 14:
+            firstCaps();
+            break;
+        case 15:
+            save();
+            break;
+        case 16:
+            break;
+    
     }
 }
