@@ -12,6 +12,11 @@
 //__________________________________________________________
 using namespace std;
 //__________________________________________________________
+void add_text();
+void encrypt();
+void empty_file();
+void decrypt_file();
+void display_file();
 void mergeFiles();
 void countWords();
 void countCharacters();
