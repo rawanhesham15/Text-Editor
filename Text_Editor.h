@@ -23,5 +23,19 @@ void turnLower();
 void firstCaps();
 void save();
 //__________________________________________________________
+string toLower(string word){
+
+    string temp;
+    ifstream myFile("dataFile.txt");
+    for (int i = 0; i < word.length(); ++i) {
+        if(isalpha(word[i])){
+            word[i] = tolower(word[i]);
+        }
+    }
+    return word;
+}
+//__________________________________________________________
 fstream myFile;
 fstream myFile2;
+char filename[81];
+//__________________________________________________________
