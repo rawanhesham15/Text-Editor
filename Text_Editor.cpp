@@ -169,3 +169,25 @@ void searchForWord(){
     else
         cout << "\"" << word << "\"" << " Was Not Found In The File:(\n";
 }
+//__________________________________________________________
+void countNumTimesWord() {
+
+    string fileName;
+    cout << "Enter input file name: " << "\n";
+    cin >> fileName;
+//open the file
+    ifstream myFile(fileName);
+    int count = 0;
+    string temp;
+    string search;
+    cout << "Please enter the word you want to know how many times it exists in the file: ";
+    cin >> search;
+    while (myFile >> temp) {
+        if (toLower(temp) == toLower(search)) {
+            ++count;
+        }
+    }
+    cout <<"The word "<< search <<" was found "<< count << " times in the file. "<< endl;
+}
+
+//__________________________________________________________
