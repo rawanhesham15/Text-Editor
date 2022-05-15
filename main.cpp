@@ -17,6 +17,7 @@ int main() {
     switch (choice) {
         case 6:
             mergeFiles();
+            save();
             break;
         case 7:
             countWords();
