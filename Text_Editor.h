@@ -17,6 +17,11 @@ void countWords();
 void countCharacters();
 void countLines();
 void searchForWord();
+void countNumTimesWord();
+void turnUpper();
+void turnLower();
+void firstCaps();
+void save();
 //__________________________________________________________
 fstream myFile;
 fstream myFile2;
