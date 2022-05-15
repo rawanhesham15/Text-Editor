@@ -2,7 +2,7 @@
 // Program Name: TextEditor.cpp
 // Last Modification Date: 15/5/2022
 // Author1 and ID and Group: Rawan Hesham / 20211040 / S2
-// Author2 and ID and Group: xxxxx xxxxx
+// Author2 and ID and Group: Nourhan Mahmoud / 20211107 / S2
 // Author3 and ID and Group: xxxxx xxxxx
 // Teaching Assistant: Eg.Nesma and Eg.Yousra
 // Purpose: program for displaying and manipulating text files.
