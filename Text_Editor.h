@@ -13,6 +13,7 @@
 using namespace std;
 //__________________________________________________________
 void mergeFiles();
+void countWords();
 //__________________________________________________________
 fstream myFile;
 fstream myFile2;

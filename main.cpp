@@ -18,6 +18,8 @@ int main() {
         case 6:
             mergeFiles();
             break;
+        case 7:
+            countWords();
+            break;
     }
-
 }
