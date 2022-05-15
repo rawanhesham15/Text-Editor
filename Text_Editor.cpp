@@ -123,3 +123,49 @@ void countLines(){
 
     cout << "The number of lines in the file is " << lines << " line.\n";
 }
+
+//__________________________________________________________
+void searchForWord(){
+    bool find = false;
+    string fileName, word, word1, word2, word3 = "";
+    char ch;
+
+    cout << "Please enter the file name: ";
+    cin >> fileName;
+
+    myFile.open(fileName, ios::out|ios::in);
+
+    if(myFile){
+        cout << "...This File is Already Exists...\n";
+    }
+    else{
+        ofstream myFile(fileName);
+        cout << "...This is a new file. I created it for you :)\n";
+    }
+    myFile.seekg(0, ios::beg); //bring position of file pointer to begining of file.
+
+    cout << "Please enter the word you want to search for: ";
+    cin >> word;
+    for(int i = 0; i < word.length(); ++i){
+        word1 += toupper(word[i]);
+    }
+
+    while(myFile.peek() != EOF){
+        while(getline(myFile, word2)){
+            for(int i = 0; i < word2.length(); ++i){
+                if(word2[i] != ' '){
+                    word3 += toupper(word2[i]);
+                }
+                else{
+                    if (word1 == word3)
+                        find = true;
+                    word3 = "";
+                }
+            }
+        }
+    }
+    if(find)
+        cout << "\"" << word << "\"" << " Was Found In The File:)\n";
+    else
+        cout << "\"" << word << "\"" << " Was Not Found In The File:(\n";
+}

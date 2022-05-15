@@ -16,6 +16,7 @@ void mergeFiles();
 void countWords();
 void countCharacters();
 void countLines();
+void searchForWord();
 //__________________________________________________________
 fstream myFile;
 fstream myFile2;

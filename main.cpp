@@ -27,5 +27,8 @@ int main() {
         case 9:
             countLines();
             break;
+        case 10:
+            searchForWord();
+            break;
     }
 }
